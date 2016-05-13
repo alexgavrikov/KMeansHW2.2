@@ -13,17 +13,17 @@
 Запуск сервера:
 	server_main clusters_number input_file output_file port_for_slaves slaves_num
 Например:
-	./server_main.out 10 shad.learn ../out/K=10_slaves_count=2_centroids.txt 1234 2
+	./server_main 10 shad.learn ../out/K=10_slaves_count=2_centroids.txt 1234 2
 
 Запуск раба:
 	slave_main port_to_bind
 Например:
-	./slave_main.out 1234
+	./slave_main 1234
 
 Запуск теста:
 	test_main input_file_with_test_data input_file_with_centroids output_file
 Например:
-	/test_main.out shad.test ../out/K=10_slaves_count=2_centroids.txt ../out/K=10_slaves_count=2_RESULT.txt 
+	/test_main shad.test ../out/K=10_slaves_count=2_centroids.txt ../out/K=10_slaves_count=2_RESULT.txt 
 
 
 
