@@ -1,0 +1,29 @@
+CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+
+CXX=g++
+
+NAME1 =		test_main
+NAME2 =		../Common/read_write
+
+SRC1=  $(NAME1).cpp
+SRC2=  $(NAME2).cpp
+
+OBJ1=  $(NAME1).o
+OBJ2=  $(NAME2).o
+
+OBJS= $(OBJ1) $(OBJ2)
+
+LIBS =   
+
+TARGET =	 $(NAME1)
+
+$(TARGET):	$(OBJS)
+	$(CXX) $(OBJS) -o $(TARGET)
+
+all:	$(TARGET)
+
+$(OBJ1): $(SRC1)
+	g++ -c -std=c++11 -x c++ $(SRC1) -o $(OBJ1)
+
+$(OBJ2): $(SRC2) ../Common/read_write.h
+	g++ -c -std=c++11 -x c++ $(SRC2) -o $(OBJ2)

@@ -1,0 +1,49 @@
+CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+
+CXX=g++
+
+NAME1 =		server_main
+NAME2 =		server
+NAME3 =		../Common/client_server
+NAME4 =		../Common/help_functions
+NAME5 =		../Common/read_write
+
+SRC1=  $(NAME1).cpp
+SRC2=  $(NAME2).cpp
+SRC3=  $(NAME3).cpp
+SRC4=  $(NAME4).cpp
+SRC5=  $(NAME5).cpp
+
+OBJ1=  $(NAME1).o
+OBJ2=  $(NAME2).o
+OBJ3=  $(NAME3).o
+OBJ4=  $(NAME4).o
+OBJ5=  $(NAME5).o
+
+OBJS= $(OBJ1) $(OBJ2) $(OBJ3) $(OBJ4) $(OBJ5)
+
+LIBS =   
+
+TARGET =	 $(NAME1)
+
+$(TARGET):	$(OBJS)
+	$(CXX) $(OBJS) -o $(TARGET)
+
+all:	$(TARGET)
+
+$(OBJ1): $(SRC1) server.h
+	g++ -c -std=c++11 -x c++ $(SRC1) -o $(OBJ1)
+
+$(OBJ2): $(SRC2) server.h ../Common/help_functions.h
+	g++ -c -std=c++11 -x c++ $(SRC2) -o $(OBJ2)
+
+$(OBJ3): $(SRC3) ../Common/client_server.h
+	g++ -c -std=c++11 -x c++ $(SRC3) -o $(OBJ3)
+
+$(OBJ4): $(SRC4) ../Common/help_functions.h
+	g++ -c -std=c++11 -x c++ $(SRC4) -o $(OBJ4)
+
+$(OBJ5): $(SRC5) ../Common/read_write.h
+	g++ -c -std=c++11 -x c++ $(SRC5) -o $(OBJ5)
+
+	
